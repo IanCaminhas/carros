@@ -1,5 +1,7 @@
 import 'package:carros_app/domain/login_service.dart';
+import 'package:carros_app/pages/home_page.dart';
 import 'package:carros_app/utils/alerts.dart';
+import 'package:carros_app/utils/nav.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -116,7 +118,8 @@ class _LoginPageState extends State<LoginPage> {
     final testValidationResponse = await LoginService.login(login, senha);
 
     if (testValidationResponse.isOk()) {
-      print("Entrar na home !!!");
+      //print("Entrar na home !!!");
+      pushReplacement(context, HomePage());
     } else {
       // import do pacote utils da classe alerts
       alert(context, "Error", "Ocorreu um erro no login");
